@@ -1,0 +1,19 @@
+{
+  "id": "/#/",
+  "start_url": "/#/",
+  "scope": "/",
+  "name": "Story App",
+  "short_name": "Story",
+  "description": "Aplikasi posting story untuk membagikan hal-hal dan cerita dati berbagai daerah.",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "type": "image/png",
+      "sizes": "144x144",
+      "purpose": "any"
+    }
+  ]
+}
