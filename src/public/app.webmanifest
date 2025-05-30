@@ -4,7 +4,7 @@
   "scope": "/",
   "name": "Story App",
   "short_name": "Story",
-  "description": "Aplikasi posting story untuk membagikan hal-hal dan cerita dati berbagai daerah.",
+  "description": "Aplikasi posting story untuk membagikan hal-hal dan cerita dari berbagai daerah.",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF",
@@ -28,6 +28,34 @@
       "sizes": "1080x2280",
       "type": "image/png",
       "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Story Baru",
+      "short_name": "Baru",
+      "description": "Membuat Story baru.",
+      "url": "/?source=pwa#/new",
+      "icons": [
+        {
+          "src": "images/icons/add-x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Story Tersimpan",
+      "short_name": "Tersimpan",
+      "description": "Lihat daftar Story tersimpan.",
+      "url": "/?source=pwa#/bookmark",
+      "icons": [
+        {
+          "src": "images/icons/bookmark-x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
     }
   ]
 }
