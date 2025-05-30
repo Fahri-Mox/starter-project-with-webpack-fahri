@@ -15,5 +15,19 @@
       "sizes": "144x144",
       "purpose": "any"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshots/StoryApp_01.png",
+      "sizes": "1920x1043",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshots/StoryApp_02.png",
+      "sizes": "1080x2280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
   ]
 }
