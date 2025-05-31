@@ -15,7 +15,7 @@ export function generateLoaderAbsoluteTemplate() {
 export function generateMainNavigationListTemplate() {
   return `
     <li><a id="report-list-button" class="report-list-button" href="#/">Daftar Story</a></li>
-    <li><a id="bookmark-button" class="bookmark-button" href="#/bookmark">Laporan Tersimpan</a></li>
+    <li><a id="bookmark-button" class="bookmark-button" href="#/bookmark">Story Tersimpan</a></li>
   `;
 }
 
@@ -38,8 +38,8 @@ export function generateAuthenticatedNavigationListTemplate() {
 export function generateReportsListEmptyTemplate() {
   return `
     <div id="reports-list-empty" class="reports-list__empty">
-      <h2>Tidak ada laporan yang tersedia</h2>
-      <p>Saat ini, tidak ada laporan kerusakan fasilitas umum yang dapat ditampilkan.</p>
+      <h2>Tidak ada story yang tersedia</h2>
+      <p>Saat ini, tidak ada story yang dapat ditampilkan.</p>
     </div>
   `;
 }
