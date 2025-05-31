@@ -47,7 +47,7 @@ export default class BookmarkPage {
     }
  
     const html = reports.reduce((accumulator, report) => {
-        if (this.#map) {
+        if (this.#map && report.lat != null && report.lon != null) {
         const coordinate = [report.lat, report.lon];
         const markerOptions = { alt: report.title };
         const popupOptions = { content: report.title };

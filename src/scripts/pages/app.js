@@ -100,30 +100,35 @@ class App {
 
 
   async renderPage() {
-    const url = getActiveRoute();
-    const route = routes[url];
+  const url = getActiveRoute(); // misalnya '/halaman-aneh'
+  const routeKey = Object.keys(routes).find((path) => {
+    if (path.includes(':')) {
+      const regex = new RegExp('^' + path.replace(/:\w+/g, '[^/]+') + '$');
+      return regex.test(url);
+    }
+    return path === url;
+  });
 
-    // Get page instance
-    const page = route();
+  const page = routeKey ? routes[routeKey]() : routes['/404'](); // ✅ Fallback ke 404
 
-    const transition = transitionHelper({
-      updateDOM: async () => {
-        if (!page) return;
-        this.#content.innerHTML = await page.render();
-        page.afterRender();
-      },
-    });
+  const transition = transitionHelper({
+    updateDOM: async () => {
+      if (!page) return;
+      this.#content.innerHTML = await page.render();
+      page.afterRender();
+    },
+  });
 
-    transition.ready.catch(console.error);
-    transition.updateCallbackDone.then(() => {
-      scrollTo({ top: 0, behavior: 'instant' });
-      this.#setupNavigationList();
+  transition.ready.catch(console.error);
+  transition.updateCallbackDone.then(() => {
+    scrollTo({ top: 0, behavior: 'instant' });
+    this.#setupNavigationList();
 
-      if (isServiceWorkerAvailable()) {
-        this.#setupPushNotification();
-      }
-    });
-  }
+    if (isServiceWorkerAvailable()) {
+      this.#setupPushNotification();
+    }
+  });
+}
 }
 
 export default App;

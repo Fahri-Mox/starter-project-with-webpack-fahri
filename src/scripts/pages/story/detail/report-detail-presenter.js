@@ -39,6 +39,7 @@ export default class ReportDetailPresenter {
       console.log(report); // for debugging purpose, remove after checking it
 
       this.#view.populateReportDetailAndInitialMap(response.message, report);
+      await this.showSaveButton();
     } catch (error) {
       console.error('showReportDetail: error:', error);
       this.#view.populateReportDetailError(error.message);

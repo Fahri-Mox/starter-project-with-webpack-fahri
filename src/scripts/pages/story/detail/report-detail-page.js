@@ -45,30 +45,33 @@ export default class ReportDetailPage {
   }
 
   async populateReportDetailAndInitialMap(message, report) {
-    document.getElementById('report-detail').innerHTML = generateReportDetailTemplate({
-      description: report.description,
-      evidenceImages: report.photoUrl,
-      location: report.location,
-      reporterName: report.name,
-      createdAt: report.createdAt,
-    });
+  document.getElementById('report-detail').innerHTML = generateReportDetailTemplate({
+    description: report.description,
+    evidenceImages: report.photoUrl,
+    location: report.location,
+    reporterName: report.name,
+    createdAt: report.createdAt,
+  });
 
-    this.renderSaveButton();
+  this.renderSaveButton();
 
-    // Carousel images
-    createCarousel(document.getElementById('images'));
+  // Carousel images
+  createCarousel(document.getElementById('images'));
 
-    // Map
-    await this.#presenter.showReportDetailMap();
-    if (this.#map) {
-      const reportCoordinate = [report.lat, report.lon];
-      const markerOptions = { alt: report.name };
-      const popupOptions = { content: report.name };
+  // Map
+  await this.#presenter.showReportDetailMap();
+  
+  if (this.#map && report.lat != null && report.lon != null) {
+    const reportCoordinate = [report.lat, report.lon];
+    const markerOptions = { alt: report.name };
+    const popupOptions = { content: report.name };
 
-      this.#map.changeCamera(reportCoordinate);
-      this.#map.addMarker(reportCoordinate, markerOptions, popupOptions);
-    }
+    this.#map.changeCamera(reportCoordinate);
+    this.#map.addMarker(reportCoordinate, markerOptions, popupOptions);
+  } else {
+    console.warn('Lokasi tidak tersedia, tidak menampilkan peta.');
   }
+}
 
   populateReportDetailError(message) {
     document.getElementById('report-detail').innerHTML = generateReportDetailErrorTemplate(message);
